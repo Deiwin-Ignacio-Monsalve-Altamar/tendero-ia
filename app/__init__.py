@@ -5,6 +5,8 @@ from app.config import Config
 from app.api.health.routes import health_bp
 from app.api.demo.routes import demo_bp
 from app.api.products.routes import products_bp
+from app.api.reports.routes import reports_bp
+from app.api.webhook.routes import webhook_bp
 from app.utils.error_handlers import register_error_handlers
 
 def create_app():
@@ -23,8 +25,11 @@ def create_app():
                 db.session.commit()
 
     app.register_blueprint(health_bp, url_prefix='/api/v1')
+    app.register_blueprint(health_bp, name='root_health_bp')
     app.register_blueprint(demo_bp, url_prefix='/api/v1/demo')
     app.register_blueprint(products_bp, url_prefix='/api/v1/products')
+    app.register_blueprint(reports_bp, url_prefix='/api/v1/reports')
+    app.register_blueprint(webhook_bp, url_prefix='/api/v1/webhook')
     
     register_error_handlers(app)
 

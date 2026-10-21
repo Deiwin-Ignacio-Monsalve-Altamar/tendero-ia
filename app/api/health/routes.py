@@ -4,4 +4,4 @@ health_bp = Blueprint('health_bp', __name__)
 
 @health_bp.route('/health', methods=['GET'])
 def health():
-    return jsonify({"success": True, "data": {"status": "ok"}}), 200
+    return jsonify({"status": "ok"}), 200

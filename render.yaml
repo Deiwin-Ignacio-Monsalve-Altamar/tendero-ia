@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: tendero-ia-backend
+    env: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: DATABASE_URL
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: WHATSAPP_VERIFY_TOKEN
+        value: tendero_token_secreto_2026
